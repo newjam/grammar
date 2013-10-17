@@ -1,0 +1,14 @@
+sentence:
+  subject, verb, ".", nlcr.
+
+subject:
+  article, noun.
+
+article: "the "; "a ".
+
+noun: "man ".
+noun: "dog ".
+
+verb: "sleeps"; "sits".
+
+

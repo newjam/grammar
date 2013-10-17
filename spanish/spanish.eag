@@ -1,0 +1,45 @@
+
+PERSON :: first | second | third.
+
+GENDER :: male | female | nuetral.
+
+NUMBER :: plural | singular.
+
+sentence : nounphrase (PERSON, NUMBER, GENDER), ser (PERSON, NUMBER), adjective(NUMBER, GENDER).
+
+nounphrase (PERSON, NUMBER, GENDER) :
+  article (NUMBER, GENDER), noun(NUMBER, GENDER);
+  pronoun (PERSON, NUMBER, GENDER).
+
+article (singular, male) : "el", layout.
+article (plural  , male) : "los", layout.
+
+article (singular, female) : "la", layout.
+article (plural  , female) : "las", layout.
+
+noun (singular, male) : "gato", layout.
+noun (plural  , male) : "gatos", layout.
+
+pronoun (first , singular, male) : "yo", layout.
+pronoun (first , plural  , male) : "nosotros", layout.
+pronoun (second, singular, male) : "tu", layout ; "usted", layout.
+pronoun (second, plural  , male) : "ustedes", layout.
+pronoun (third , singular, male   ) : "el", layout.
+pronoun (third , singular, female ) : "ella", layout.
+pronoun (third , plural  , male   ) : "ellos" , layout.
+pronoun (third , plural  , female ) : "ellas", layout.
+
+ser (first, singular)  : "soy" , layout.
+ser (first, plural)  : "somos" , layout.
+ser (second, singular) : "eres" , layout.
+ser (second, plural) : "son" , layout.
+ser (third, singular) : "es", layout.
+ser (third, plural) : "son", layout.
+
+adjective (singular, male) : "malo", layout.
+adjective (plural  , male) : "malos", layout.
+adjective (singular, female) : "mala", layout.
+adjective (plural  , female) : "malas", layout.
+
+layout: { \t\n} *!.
+
