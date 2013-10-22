@@ -5,11 +5,28 @@ GENDER :: male | female | nuetral.
 
 NUMBER :: plural | singular.
 
-sentence : nounphrase (PERSON, NUMBER, GENDER), ser (PERSON, NUMBER), adjective(NUMBER, GENDER).
+sentence :
+  nounphrase (PERSON, NUMBER, GENDER),
+  verb (PERSON, NUMBER),
+  conjunction.
+
+conjunction :.
+conjunction : conjunction word, sentence.
+
+conjunction word: "y", layout.
+conjunction word: "pero", layout.
+
+bloop (NUMBER, GENDER) :
+  article (NUMBER, GENDER);
+  possessive adjective (NUMBER, GENDER).
 
 nounphrase (PERSON, NUMBER, GENDER) :
-  article (NUMBER, GENDER), noun(NUMBER, GENDER);
+  bloop(NUMBER, GENDER), noun(NUMBER, GENDER);
   pronoun (PERSON, NUMBER, GENDER).
+
+verb (PERSON, NUMBER) :
+  ser (PERSON, NUMBER);
+  tener.
 
 article (singular, male) : "el", layout.
 article (plural  , male) : "los", layout.
@@ -19,6 +36,10 @@ article (plural  , female) : "las", layout.
 
 noun (singular, male) : "gato", layout.
 noun (plural  , male) : "gatos", layout.
+noun (singular, female) : "gata", layout.
+noun (plural  , female) : "gatas", layout.
+
+
 
 pronoun (first , singular, male) : "yo", layout.
 pronoun (first , plural  , male) : "nosotros", layout.
@@ -36,10 +57,37 @@ ser (second, plural) : "son" , layout.
 ser (third, singular) : "es", layout.
 ser (third, plural) : "son", layout.
 
+tener (first, singular) : "tengo".
+tener (first, plural) : "tenemos".
+tener (second, singular) : "tienes".
+tener (second, plural) : "tienen".
+tener (third, singular) : "tiene".
+tener (third, plural) : "tienen".
+
+possessive adjective (singular, male) :
+  "mi", layout;
+  "tu", layout;
+  "su", layout;
+  "nuestro", layout.
+possessive adjective (plural, male) :
+  "mis", layout;
+  "sus", layout;
+  "nuestros", layout.
+possessive adjective (singular, female) :
+  "nuestra", layout.
+possessive adjective (plural, female) :
+  "nuestras", layout.
+
 adjective (singular, male) : "malo", layout.
 adjective (plural  , male) : "malos", layout.
 adjective (singular, female) : "mala", layout.
 adjective (plural  , female) : "malas", layout.
+
+adjective (singular, male) : "negro", layout.
+adjective (singular, female) : "negra", layout.
+adjective (plural, male) : "negros", layout.
+adjective (plural, female) : "negras", layout.
+
 
 layout: { \t\n} *!.
 
