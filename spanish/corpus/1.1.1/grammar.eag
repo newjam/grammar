@@ -1,0 +1,60 @@
+
+GENDER :: male | female.
+NUMBER :: plural | singular.
+
+SENTENCE : NOUN PHRASE (NUMBER), VERB (NUMBER).
+
+VERB (NUMBER) :
+  read(NUMBER);
+  drink(NUMBER);
+  eat(NUMBER);
+  cook(NUMBER);
+  run(NUMBER);
+  swim(NUMBER);
+  write(NUMBER).
+
+NOUN PHRASE (NUMBER) :
+  ARTICLE(GENDER, NUMBER), NOUN(GENDER, NUMBER);
+  PRONOUN(GENDER, NUMBER).
+
+ARTICLE (male  , singular) : "el", layout.
+ARTICLE (female, singular) : "la", layout.
+ARTICLE (male  , plural  ) : "los", layout.
+ARTICLE (female, plural  ) : "las", layout.
+
+PRONOUN (male  , singular) : "el", layout.
+PRONOUN (female, singular) : "ella", layout.
+PRONOUN (male  , plural  ) : "ellos", layout.
+PRONOUN (female, plural  ) : "ellas", layout.
+
+NOUN (GENDER, NUMBER) :
+  child(GENDER, NUMBER);
+  woman(GENDER, NUMBER);
+  man(GENDER, NUMBER).
+
+man (male, singular) : "hombre", layout.
+man (male, plural  ) : "hombres", layout.
+  
+woman (female, singular) : "mujer", layout.
+woman (female, plural  ) : "mujeres", layout.
+
+child (male  , singular) : "nino", layout.
+child (female, singular) : "nina", layout.
+child (male  , plural)   : "ninos", layout.
+child (female, plural)   : "ninas", layout.
+
+read (NUMBER) : "le", er (NUMBER), layout.
+drink (NUMBER) : "beb", er(NUMBER), layout.
+eat (NUMBER) : "com", er(NUMBER), layout.
+cook (NUMBER) : "cocin", ar(NUMBER), layout.
+run (NUMBER) : "corr", er(NUMBER), layout.
+swim (NUMBER) : "nad", ar(NUMBER), layout.
+write (NUMBER) : "escrib", er(NUMBER), layout.
+
+ar (singular) : "a".
+ar (plural  ) : "an".
+
+er (singular) : "e".
+er (plural  ) : "en".
+
+layout: { \t\n} *!.
