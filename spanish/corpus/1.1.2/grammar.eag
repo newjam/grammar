@@ -1,0 +1,111 @@
+
+GENDER :: male | female.
+NUMBER :: plural | singular.
+
+SENTENCE : NOUN PHRASE (NUMBER), VERB PHRASE (NUMBER).
+
+VERB PHRASE (NUMBER1) :
+  COMPLEMENT, VERB (NUMBER1);
+  COMPLEMENT, VERB (NUMBER1), NOUN PHRASE (NUMBER2).
+
+COMPLEMENT :
+  "no", layout;
+  layout.
+
+VERB (NUMBER) :
+  read(NUMBER);
+  drink(NUMBER);
+  eat(NUMBER);
+  cook(NUMBER);
+  run(NUMBER);
+  swim(NUMBER);
+  write(NUMBER);
+  drive(NUMBER);
+  walk(NUMBER);
+  sleep(NUMBER);
+  have(NUMBER);
+  ser(NUMBER).
+
+NOUN PHRASE (NUMBER) :
+  ARTICLE(GENDER, NUMBER), NOUN(GENDER, NUMBER);
+  PRONOUN(GENDER, NUMBER);
+  .
+
+ARTICLE (GENDER, NUMBER) :
+  DEFINITE ARTICLE (GENDER, NUMBER);
+  INDEFINITE ARTICLE (GENDER, NUMBER).
+
+DEFINITE ARTICLE (male  , singular) : "el", layout.
+DEFINITE ARTICLE (female, singular) : "la", layout.
+DEFINITE ARTICLE (male  , plural  ) : "los", layout.
+DEFINITE ARTICLE (female, plural  ) : "las", layout.
+
+INDEFINITE ARTICLE (male  , singular) : "un", layout.
+INDEFINITE ARTICLE (female, singular) : "una", layout.
+INDEFINITE ARTICLE (male  , plural  ) : layout.
+INDEFINITE ARTICLE (female, plural  ) : layout.
+
+PRONOUN (male  , singular) : "el", layout.
+PRONOUN (female, singular) : "ella", layout.
+PRONOUN (male  , plural  ) : "ellos", layout.
+PRONOUN (female, plural  ) : "ellas", layout.
+
+NOUN (GENDER, NUMBER) :
+  child(GENDER, NUMBER);
+  woman(GENDER, NUMBER);
+  man(GENDER, NUMBER);
+  adult(GENDER, NUMBER);
+  dog(GENDER, NUMBER);
+  cat(GENDER, NUMBER);
+  newspaper(GENDER, NUMBER);
+  rice(GENDER, NUMBER);
+  egg(GENDER, NUMBER);
+  apple(GENDER, NUMBER);
+  car(GENDER, NUMBER).
+
+man (male, singular) : "hombre", layout.
+man (male, plural  ) : "hombres", layout.
+  
+woman (female, singular) : "mujer", layout.
+woman (female, plural  ) : "mujeres", layout.
+
+NOUN SUFFIX (male, singular)   : "o", layout.
+NOUN SUFFIX (female, singular) : "a", layout.
+NOUN SUFFIX (male, plural)     : "os", layout.
+NOUN SUFFIX (female, plural)   : "as", layout.
+
+child (GENDER, NUMBER) : "nin", NOUN SUFFIX (GENDER, NUMBER).
+adult (GENDER, NUMBER) : "adult", NOUN SUFFIX (GENDER, NUMBER).
+dog(GENDER, NUMBER) : "perr", NOUN SUFFIX (GENDER, NUMBER).
+cat(GENDER, NUMBER) : "gat", NOUN SUFFIX (GENDER, NUMBER).
+newspaper(male, NUMBER) : "periodic", NOUN SUFFIX(male, NUMBER).
+rice (male, plural) : "arroz", layout.
+egg (male, NUMBER) : "huev", NOUN SUFFIX(male, NUMBER).
+apple (female, NUMBER) : "manzan", NOUN SUFFIX (female, NUMBER).
+car (male, NUMBER) : "carr", NOUN SUFFIX (male, NUMBER).
+
+read (NUMBER) : "le", er (NUMBER), layout.
+drink (NUMBER) : "beb", er(NUMBER), layout.
+eat (NUMBER) : "com", er(NUMBER), layout.
+cook (NUMBER) : "cocin", ar(NUMBER), layout.
+run (NUMBER) : "corr", er(NUMBER), layout.
+swim (NUMBER) : "nad", ar(NUMBER), layout.
+write (NUMBER) : "escrib", er(NUMBER), layout.
+drive(NUMBER) : "manej", ar(NUMBER), layout.
+walk(NUMBER) : "camin", ar(NUMBER), layout.
+
+sleep(singular) : "duerme", layout. 
+sleep(plural  ) : "duermen", layout. 
+
+have(singular) : "tiene", layout.
+have(plural)   : "tienen", layout.
+
+ser(singular) : "es", layout. 
+
+ar (singular) : "a".
+ar (plural  ) : "an".
+
+er (singular) : "e".
+er (plural  ) : "en".
+
+layout: { \t\n} *!.
